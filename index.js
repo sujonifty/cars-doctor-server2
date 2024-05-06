@@ -55,7 +55,8 @@ async function run() {
         //remove token in cookie after logout
         app.post('/logout', async(req, res)=>{
             const  user = req.body;
-            res.send({success: true})
+            console.log('login', user);
+            res.clearCookie('token', {maxAge: 0}).send({success: true})
         })
 
 
